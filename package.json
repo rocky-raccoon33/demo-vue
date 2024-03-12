@@ -1,0 +1,55 @@
+{
+  "name": "vue-paper-dashboard",
+  "version": "1.0.1",
+  "private": true,
+  "scripts": {
+    "e2e": "node test/e2e/runner.js",
+    "lint": "vue-cli-service lint",
+    "lint-fix": "vue-cli-service lint --fix",
+    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "dev": "npm run serve"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap": "4.6.2",
+    "chartist": "0.11.0",
+    "echarts": "^5.4.2",
+    "echarts-stat": "^1.2.0",
+    "element-ui": "^2.15.13",
+    "es6-promise": "4.2.8",
+    "eslint-plugin-vue": "^9.8.0",
+    "js-sha256": "^0.9.0",
+    "popper.js": "^1.16.1",
+    "vue": "^2.7.14",
+    "vue-clickaway": "^2.2.2",
+    "vue-cookies": "^1.8.3",
+    "vue-echarts": "^6.6.0",
+    "vue-js-modal": "^2.0.1",
+    "vue-notifyjs": "0.3.0",
+    "vue-router": "3.0.1",
+    "vue-slider-component": "^3.2.24",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "3.12.1",
+    "@vue/cli-plugin-eslint": "3.12.1",
+    "@vue/cli-service": "3.12.1",
+    "@vue/eslint-config-prettier": "5.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "sass": "^1.63.6",
+    "sass-loader": "^10.2.0",
+    "vue-template-compiler": "2.7.14"
+  },
+  "description": "A sample admin dashboard based on paper dashboard UI template",
+  "author": "cristian.jora <joracristi@gmail.com>",
+  "engines": {
+    "node": ">= 8.1.4",
+    "npm": ">= 5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
