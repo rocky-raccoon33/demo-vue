@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:vue/essential",
+    "@vue/prettier"
+  ],
+  "rules": {
+    "linebreak-style": 0,
+    "prettier/prettier": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/no-use-v-if-with-v-for": "off",
+    "vue/no-unused-components": "off",
+    "*":"off"
+  },
+  "compilerOptions": {
+    "noUnusedLocals": false
+  },
+  "env": {
+    "node": true,
+    "amd": true
+  }
+}
