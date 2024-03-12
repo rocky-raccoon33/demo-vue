@@ -6,7 +6,7 @@
                 <p style="font-size: 70px;">{{ userInfo.username.charAt(0).toLocaleUpperCase() }}</p></el-avatar>
             <el-collapse-transition>
                 <div v-show="showChangeAvatar" style="float: right;padding-left: 10px;">
-                    <el-upload class="avatar-uploader" action="http://http://1.14.204.181:5000/change_avatar" :limit="1"
+                    <el-upload class="avatar-uploader" action="http://1.14.204.181:5000/change_avatar" :limit="1"
                         :on-success="uploadSuccess" :show-file-list="false" accept=".png, .jpg, .jpeg" :headers="headerObj">
                         <i class="el-icon-refresh-left avatar-uploader-icon"></i>
                     </el-upload>
@@ -80,7 +80,7 @@ export default {
 
     methods: {
         getUserInfo() {
-            fetch(`http://http://1.14.204.181:5000/get_userinfo`, {
+            fetch(`http://1.14.204.181:5000/get_userinfo`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -96,7 +96,7 @@ export default {
         },
 
         getAvatar() {
-            fetch(`http://http://1.14.204.181:5000/get_avatar`, {
+            fetch(`http://1.14.204.181:5000/get_avatar`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -115,7 +115,7 @@ export default {
         },
 
         commonChange(key, value) {
-            fetch(`http://http://1.14.204.181:5000/change_userinfo`, {
+            fetch(`http://1.14.204.181:5000/change_userinfo`, {
                 method: 'post',
                 body: JSON.stringify({
                     key: key,
