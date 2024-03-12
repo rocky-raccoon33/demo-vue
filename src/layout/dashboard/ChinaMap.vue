@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     getWindTurbines() {
-      fetch(`http://http://1.14.204.181/:5000/get_datasets`, {
+      fetch(`http://http://1.14.204.181:5000/get_datasets`, {
         headers: {
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
