@@ -41,7 +41,7 @@ export default {
             this.$confirm('确定提升？')
                 .then(() => {
                     //后端操作
-                    fetch(`http://1.14.204.181:5000/promote`, {
+                    fetch(`http://127.0.0.1:5000/promote`, {
                         method: 'post',
                         body: JSON.stringify({
                             user_id: row.user_id,
@@ -65,7 +65,7 @@ export default {
             this.$confirm('确定降级？')
                 .then(() => {
                     //后端操作
-                    fetch(`http://1.14.204.181:5000/demote`, {
+                    fetch(`http://127.0.0.1:5000/demote`, {
                         method: 'post',
                         body: JSON.stringify({
                             user_id: row.user_id,
@@ -87,7 +87,7 @@ export default {
         },
         //获取模型
         getUsers() {
-            fetch(`http://1.14.204.181:5000/get_users`, {
+            fetch(`http://127.0.0.1:5000/get_users`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息

@@ -6,8 +6,8 @@
         <div class="col-md-7 col-12 d-flex flex-column">
           <!-- 数据图 -->
           <div class="flex-grow-1">
-            <EchartsCard ref="preprocessMain" title="风速-功率曲线图"
-              sub-title="正常数据表示满足风速-功率曲线规律的数据；甲类异常点表示长时间保持完全停滞的数据；乙类异常点表示不满足风速-功率曲线的数据" :chart-options="windPowerOption"
+            <EchartsCard ref="preprocessMain" title="日期-销量曲线图"
+              sub-title="正常数据表示满足日期-销量曲线规律的数据；甲类异常点表示长时间保持完全停滞的数据；乙类异常点表示不满足日期-销量曲线的数据" :chart-options="windPowerOption"
               chartHeight="600px">
 
             </EchartsCard>
@@ -16,7 +16,7 @@
           <div class="row">
             <!-- 参数控制 -->
             <div class="col-6">
-              <Card ref="control" title="参数调整" subTitle="本模型采用bin算法修正风速-功率曲线，异常阈值和区间宽度为bin算法参数；停滞阈值表示能够容忍数据停滞的最大时间点步数">
+              <Card ref="control" title="参数调整" subTitle="本模型采用bin算法修正日期-销量曲线，异常阈值和区间宽度为bin算法参数；停滞阈值表示能够容忍数据停滞的最大时间点步数">
                 <div class=" no-gutters">
                   <div class="row align-items-center col-12 no-gutters">
 
@@ -290,14 +290,14 @@ export default {
     '$store.state.selectedWindTurbine': function () {
       this.getBinProcessedData()
     },
-    //风速功率曲线重渲染
+    //日期销量曲线重渲染
     'windPowerOption': {
       handler() {
         const preprocessMain = this.$refs.preprocessMain;
         const abnormalPie = this.$refs.abnormalPie;
         const missingPie = this.$refs.missingPie;
         if (preprocessMain && preprocessMain.setOption) {
-          preprocessMain.setOption(this.windPowerOption); //更新风速功率曲线图
+          preprocessMain.setOption(this.windPowerOption); //更新日期销量曲线图
         }
         if (abnormalPie && abnormalPie.setOption) {
           abnormalPie.setOption(this.abnormalOption); //更新
@@ -316,7 +316,7 @@ export default {
       this.fetchBinProcessedData(this.getWindTurbineName(this.$store.state.selectedWindTurbine), this.sigma, this.deadCount, this.step, this.missingValueOption, this.aValueOption, this.bValueOption)
     },
     fetchBinProcessedData(number, sigma, deadCount, step, missingValueOption, aValueOption, bValueOption) {
-      fetch(`http://1.14.204.181:5000/bin_data?number=${number}&sigma=${sigma}&deadCount=${deadCount}&step=${step}`,{
+      fetch(`http://127.0.0.1:5000/bin_data?number=${number}&sigma=${sigma}&deadCount=${deadCount}&step=${step}`,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -342,7 +342,7 @@ export default {
       const aValueOption = this.aValueOption
       const bValueOption = this.bValueOption
 
-      fetch(`http://1.14.204.181:5000/do_data_process?missingValueOption=${missingValueOption}&aValueOption=${aValueOption}&bValueOption=${bValueOption}`,{
+      fetch(`http://127.0.0.1:5000/do_data_process?missingValueOption=${missingValueOption}&aValueOption=${aValueOption}&bValueOption=${bValueOption}`,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息

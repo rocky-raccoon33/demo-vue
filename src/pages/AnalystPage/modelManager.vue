@@ -54,7 +54,7 @@ export default {
             this.$confirm('确定删除模型？')
                 .then(() => {
                     //后端操作
-                    fetch(`http://1.14.204.181:5000/delete_model`, {
+                    fetch(`http://127.0.0.1:5000/delete_model`, {
                         method: 'post',
                         body: JSON.stringify({
                             model_id: row.model_id,
@@ -77,7 +77,7 @@ export default {
         },
         //获取模型
         getModels() {
-            fetch(`http://1.14.204.181:5000/get_models?dataset=None`, {
+            fetch(`http://127.0.0.1:5000/get_models?dataset=None`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
