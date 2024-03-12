@@ -438,7 +438,7 @@ export default {
     },
     //获取模型未训练的数据
     getUnprocessedData(Number) {
-      fetch(`http://127.0.0.1:5000/unprocessed_data?number=${Number}`, {
+      fetch(`http://1.14.204.181:5000/unprocessed_data?number=${Number}`, {
         headers: {
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -503,7 +503,7 @@ export default {
         lock: true,
         text: '正在训练模型，请勿退出',
       });
-      await fetch(`http://127.0.0.1:5000/train`, {
+      await fetch(`http://1.14.204.181:5000/train`, {
         method: 'post',
         body: JSON.stringify({
           number: this.getWindTurbineName(this.$store.state.selectedWindTurbine),
@@ -545,7 +545,7 @@ export default {
     },
     //获取验证集数据
     getTrainedData(Number) {
-      fetch(`http://127.0.0.1:5000/trained_data`, {
+      fetch(`http://1.14.204.181:5000/trained_data`, {
         method: 'post',
         body: JSON.stringify({
           number: Number,
@@ -585,7 +585,7 @@ export default {
     //重新训练
     retrain() {
       const analyst = 'rich'
-      fetch(`http://127.0.0.1:5000/retrain?analyst=${analyst}`, {
+      fetch(`http://1.14.204.181:5000/retrain?analyst=${analyst}`, {
         headers: {
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -605,7 +605,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           // console.log(this.form)
-          fetch(`http://127.0.0.1:5000/save_model`, {
+          fetch(`http://1.14.204.181:5000/save_model`, {
             method: 'post',
             body: JSON.stringify({
               // analyst_id: this.$cookies.get("user_id"),

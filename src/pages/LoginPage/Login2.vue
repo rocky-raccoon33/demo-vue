@@ -88,7 +88,7 @@ export default {
             // Handle the sign-up logic here...
             this.$refs['signup'].validate((valid) => {
                 if (valid) {
-                    fetch(`http://127.0.0.1:5000/login_api/sign_up`, {
+                    fetch(`http://1.14.204.181:5000/login_api/sign_up`, {
                         method: 'post',
                         body: JSON.stringify({
                             username: this.signUpData.username,
@@ -126,7 +126,7 @@ export default {
             // Handle the log-in logic here...
             this.$refs['login'].validate((valid) => {
                 if (valid) {
-                    fetch(`http://127.0.0.1:5000/login_api/login`, {
+                    fetch(`http://1.14.204.181:5000/login_api/login`, {
                         method: 'post',
                         body: JSON.stringify({
                             username: this.logInData.username,

@@ -279,7 +279,7 @@ export default {
     //把获取相关性数据封装为函数
     getCorrlationData(Number, y_name, x_name) {
       if(!Number) return
-      fetch(`http://127.0.0.1:5000/correlation?number=${Number}&y=${y_name}&x=${x_name}`,{
+      fetch(`http://1.14.204.181:5000/correlation?number=${Number}&y=${y_name}&x=${x_name}`,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -315,7 +315,7 @@ export default {
     fetchStatsCardsData(windTurbineName) {
       windTurbineName = this.getWindTurbineName(windTurbineName) 
       if(!windTurbineName) return
-      fetch('http://127.0.0.1:5000/basic_info?number=' + windTurbineName,{
+      fetch('http://1.14.204.181:5000/basic_info?number=' + windTurbineName,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -340,7 +340,7 @@ export default {
     //----------------------------------属性可视化的方法----------------------
     toggleActive(value) {
       let windTurbineName = this.getWindTurbineName(this.$store.state.selectedWindTurbine) //截取'风机 ',取后面的数字
-      const fetchXAxisData = fetch(`http://127.0.0.1:5000/dimension_data?number=${windTurbineName}&dimension=DATATIME`,{
+      const fetchXAxisData = fetch(`http://1.14.204.181:5000/dimension_data?number=${windTurbineName}&dimension=DATATIME`,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -351,7 +351,7 @@ export default {
           this.options[value].xAxis[0].data = data['DATATIME'];
         });
 
-      const fetchYAxisData = fetch(`http://127.0.0.1:5000/dimension_data?number=${windTurbineName}&dimension=${value}`,{
+      const fetchYAxisData = fetch(`http://1.14.204.181:5000/dimension_data?number=${windTurbineName}&dimension=${value}`,{
         headers:{
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
