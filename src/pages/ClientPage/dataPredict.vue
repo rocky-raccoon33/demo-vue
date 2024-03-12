@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12 col-lg-6">
             <card title="导入数据">
-                <el-upload class="w-100" drag action="http://127.0.0.1:5000/receive_predict_data" :limit="1"
+                <el-upload class="w-100" drag action="http://http://1.14.204.181/:5000/receive_predict_data" :limit="1"
                     v-if="!data_submmited" :on-success="uploadSuccess" accept=".csv, .xls, .xlsx" :headers="headerObj">
                     <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
                     <div class="el-upload__tip" slot="tip">
@@ -182,7 +182,7 @@ export default {
         //获取模型
         getModels() {
             var dataset = this.$store.state.selectedWindTurbine.dataset_id//.split(/[\t\r\f\n\s]*/g).join('')
-            fetch(`http://127.0.0.1:5000/get_models?dataset=${dataset}`, {
+            fetch(`http://http://1.14.204.181/:5000/get_models?dataset=${dataset}`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -202,7 +202,7 @@ export default {
             var number = this.selected_model[0].table_name
             var score = this.selected_model[0].score
             var model_type = this.selected_model[0].model_type
-            fetch(`http://127.0.0.1:5000/predict?analyst=${analyst}&number=${number}&score=${score}&model_type=${model_type}&model_id=${model_id}`, {
+            fetch(`http://http://1.14.204.181/:5000/predict?analyst=${analyst}&number=${number}&score=${score}&model_type=${model_type}&model_id=${model_id}`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -219,7 +219,7 @@ export default {
         },
         //下载
         downloadResult() {
-            fetch(`http://127.0.0.1:5000/get_predict_csv`, {
+            fetch(`http://http://1.14.204.181/:5000/get_predict_csv`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息

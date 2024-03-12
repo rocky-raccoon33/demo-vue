@@ -144,7 +144,7 @@ export default {
     },
 
     getAvatar() {
-      fetch(`http://127.0.0.1:5000/get_avatar`, {
+      fetch(`http://http://1.14.204.181/:5000/get_avatar`, {
         headers: {
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -162,7 +162,7 @@ export default {
     },
 
     getUserInfo() {
-      fetch(`http://127.0.0.1:5000/get_userinfo`, {
+      fetch(`http://http://1.14.204.181/:5000/get_userinfo`, {
         headers: {
           'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
           'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息

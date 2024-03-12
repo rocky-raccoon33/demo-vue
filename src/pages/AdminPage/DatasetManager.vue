@@ -90,7 +90,7 @@
                     </span>
                 </el-form-item>
             </el-form>
-            <el-upload class="w-100" drag action="http://127.0.0.1:5000/receive_dataset_data" :limit="1" v-else
+            <el-upload class="w-100" drag action="http://http://1.14.204.181/:5000/receive_dataset_data" :limit="1" v-else
                 :on-success="uploadSuccess" accept=".csv, .xls, .xlsx" :headers="headerObj">
                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
                 <div class="el-upload__tip" slot="tip">
@@ -272,7 +272,7 @@ export default {
 
         //获取数据集
         getDatasets() {
-            fetch(`http://127.0.0.1:5000/get_datasets`, {
+            fetch(`http://http://1.14.204.181/:5000/get_datasets`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
@@ -288,7 +288,7 @@ export default {
             this.$confirm('确定删除？')
                 .then(() => {
                     //后端操作
-                    fetch(`http://127.0.0.1:5000/delete_dataset`, {
+                    fetch(`http://http://1.14.204.181/:5000/delete_dataset`, {
                         method: 'post',
                         body: JSON.stringify({
                             'dataset_id': row.dataset_id,
@@ -317,7 +317,7 @@ export default {
         },
 
         update_dataset(row, key) {
-            fetch(`http://127.0.0.1:5000/update_dataset`, {
+            fetch(`http://http://1.14.204.181/:5000/update_dataset`, {
                 method: 'post',
                 body: JSON.stringify({
                     'dataset_id': row.dataset_id,
@@ -354,7 +354,7 @@ export default {
 
 
         update_location(row, location, longitude, latitude) {
-            fetch(`http://127.0.0.1:5000/update_location`, {
+            fetch(`http://http://1.14.204.181/:5000/update_location`, {
                 method: 'post',
                 body: JSON.stringify({
                     'dataset_id': row.dataset_id,
@@ -389,7 +389,7 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     // console.log(this.form)
-                    fetch(`http://127.0.0.1:5000/add_dataset`, {
+                    fetch(`http://http://1.14.204.181/:5000/add_dataset`, {
                         method: 'post',
                         body: JSON.stringify({
                             dataset_name: this.form.dataset_name,

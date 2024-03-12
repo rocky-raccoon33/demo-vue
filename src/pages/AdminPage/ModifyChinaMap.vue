@@ -128,7 +128,7 @@ export default {
 
 
         confirmLocation() {
-            fetch(`http://127.0.0.1:5000/update_location`, {
+            fetch(`http://http://1.14.204.181/:5000/update_location`, {
                 method: 'post',
                 body: JSON.stringify({
                     'dataset_id': this.dataset_id, // 使用从 props 传递的 dataset_id
@@ -212,7 +212,7 @@ export default {
             this.$emit('close-map-modal');
         },
         getWindTurbines() {
-            fetch(`http://127.0.0.1:5000/get_datasets`, {
+            fetch(`http://http://1.14.204.181/:5000/get_datasets`, {
                 headers: {
                     'Content-Type': 'application/json', // 设置内容类型头部信息为 JSON
                     'Authorization': `Bearer ${this.$cookies.get('token')}`, // 设置授权头部信息
